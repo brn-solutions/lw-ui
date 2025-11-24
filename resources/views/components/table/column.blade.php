@@ -7,7 +7,13 @@
         ]
     ) }}
 >
-    <div class="flex items-center gap-1 cursor-pointer">
+    <div 
+        @class([
+            'flex items-center gap-1 cursor-pointer',
+            'cursor-default' => !$sortable,
+            'justify-end' => $attributes->has('align') && $attributes->get('align') === 'right',
+        ])
+    >
         {{ $slot }}
         @if ($sortable)
             @if ($sorted)
