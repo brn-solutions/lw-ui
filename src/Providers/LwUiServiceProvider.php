@@ -3,6 +3,12 @@
 namespace BrnSolutions\LwUi\Providers;
 
 use BrnSolutions\LwUi\View\Components\Badge;
+use BrnSolutions\LwUi\View\Components\Table\Cell;
+use BrnSolutions\LwUi\View\Components\Table\Column;
+use BrnSolutions\LwUi\View\Components\Table\Columns;
+use BrnSolutions\LwUi\View\Components\Table\Row;
+use BrnSolutions\LwUi\View\Components\Table\Rows;
+use BrnSolutions\LwUi\View\Components\Table\Table;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -15,6 +21,12 @@ class LwUiServiceProvider extends ServiceProvider
 
         Blade::componentNamespace('BrnSolutions\\LwUi\\View\\Components', 'lw-ui');
         Blade::component('lw-ui-badge', Badge::class);
+        Blade::component('lw-ui-table', Table::class);
+        Blade::component('lw-ui-table.cell', Cell::class);
+        Blade::component('lw-ui-table.column', Column::class);
+        Blade::component('lw-ui-table.columns', Columns::class);
+        Blade::component('lw-ui-table.row', Row::class);
+        Blade::component('lw-ui-table.rows', Rows::class);
 
         $this->callAfterResolving('blade.compiler', function (BladeCompiler $blade) {
             $blade->prepareStringsForCompilationUsing(function (string $value) {
